@@ -1,0 +1,20 @@
+.font-img{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 30px;
+  padding: 10px;
+}
+.file{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+
+}

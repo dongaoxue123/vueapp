@@ -1,0 +1,15 @@
+.textname{
+    background: #fff;
+    padding: 10px;
+}
+.maintext{
+    color: #5ca3ff;
+    font-size: 16px;
+    margin: 10px;
+}
+.textbolck{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+}
