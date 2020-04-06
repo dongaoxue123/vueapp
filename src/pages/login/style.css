@@ -1,0 +1,10 @@
+.imglogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.butlogin{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

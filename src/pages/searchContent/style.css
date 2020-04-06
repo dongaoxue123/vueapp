@@ -1,0 +1,36 @@
+.taptitle{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .shareText{
+    background: #5ca3ff;
+    border-radius: 5px 5px 5px 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .shareTextcontent{
+    background: #fff;
+    /* border-radius: 10px 10px 10px 10px; */
+    margin: 20px 20px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .shareTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-size: 12px;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #5ca3ff;
+}
