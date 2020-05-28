@@ -21,8 +21,15 @@ import MineDetailPost from '@/pages/mineDetailPost/mineDetailPost'
 import SetHeader from '@/pages/setHeader/setHeader'
 import Password from '@/pages/password/password'
 import ChangePhone from '@/pages/changePhone/changePhone'
+import JobRecruitmentMain from '@/pages/job/jobRecruitmentMain'
+import JobList from '@/pages/job/jobList'
+import DetaliJob from '@/pages/job/detaliJob'
+import Company from '@/pages/job/company'
+import MineJob from '@/pages/job/mineJob'
+import MineCompany from '@/pages/job/mineCompany'
+import CompanyList from '@/pages/job/companyList'
 Vue.use(Router)
-export default new Router({
+export default new Router({ 
   routes: [
     {
       path: '/',
@@ -129,6 +136,43 @@ export default new Router({
       path: '/changePhone',
       name: 'ChangePhone',
       component: ChangePhone
+    },
+    {
+      path: '/jobRecruitmentMain',
+      name: 'JobRecruitmentMain',
+      component: JobRecruitmentMain
+    },
+    {
+      path: '/jobList',
+      name: 'jobList',
+      component: JobList
+    },
+    {
+      path: '/detaliJob',
+      name: 'DetaliJob',
+      component: DetaliJob
+    }
+    ,
+    {
+      path: '/company',
+      name: 'Company',
+      component: Company
+    },
+    {
+      path: '/mineJob',
+      name: 'MineJob',
+      component: MineJob
+    },
+    {
+      path: '/mineCompany',
+      name: 'MineCompany',
+      component: MineCompany
+    }
+    ,
+    {
+      path: '/companyList',
+      name: 'CompanyList',
+      component: CompanyList
     }
   ]
 })

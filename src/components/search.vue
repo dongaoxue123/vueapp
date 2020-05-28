@@ -26,6 +26,11 @@ Vue.use(Search)
 Vue.use(Icon)
 export default {
   name: 'Searchs',
+  data() {
+    return {
+      value:''
+    }
+  },
   methods: {
     toLogin () {
       console.log(localStorage.name)

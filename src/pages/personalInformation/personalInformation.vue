@@ -102,7 +102,8 @@ export default {
       this.$router.push({path: '/setIformation'})
     },
     onClickLeft () {
-      this.$router.back()
+      // this.$router.back()
+      this.$router.push({path: '/'})
     },
     setheaderimg () {
       this.show = true

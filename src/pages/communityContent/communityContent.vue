@@ -33,8 +33,9 @@
         </button> -->
         <div v-if="isclick" style="display: flex;justify-content: center;align-items: center;margin-top: 10px;">
           <van-loading v-if="isloding" type="spinner" color="#1989fa" />
-        <van-button style="border-radius: 10px 10px 10px 10px;width: 90%;font-size: 14px;" size="small" v-if="isclick" @click="clickl" plain type="info">加载更多</van-button>
+        <van-button style="border-radius: 10px 10px 10px 10px;width: 90%;font-size: 14px;" size="small"  v-if="isclick" @click="clickl" plain type="info">加载更多</van-button>
       </div>
+      <div  v-if="!isclick" style="text-align: center;color: #5ca3ff;margin-top: 6px">暂无更多</div>
         <!-- </van-list> -->
       <!-- </div> -->
         </div>
@@ -60,6 +61,7 @@
           <van-loading v-if="islodinghot" type="spinner" color="#1989fa" />
         <van-button style="border-radius: 10px 10px 10px 10px;width: 90%;font-size: 14px;" size="small" v-if="isclickhott" @click="clickhott" plain type="info">加载更多</van-button>
       </div>
+      <div  v-if="!isclickhott" style="text-align: center;color: #5ca3ff;margin-top: 6px">暂无更多</div>
         </div>
       </van-pull-refresh>
       </van-tab>
@@ -81,8 +83,9 @@
         <!-- </div> -->
         <div v-if="isclickcream" style="display: flex;justify-content: center;align-items: center;margin-top: 10px;">
           <van-loading v-if="islodingcream" type="spinner" color="#1989fa" />
-        <van-button style="border-radius: 10px 10px 10px 10px;width: 90%;font-size: 14px;" size="small" v-if="isclickcream" @click="clickcream" plain type="info">加载更多</van-button>
+        <van-button style="border-radius: 10px 10px 10px 10px;width: 90%;font-size: 14px;" size="small" @click="clickcream" plain type="info">加载更多</van-button>
       </div>
+      <div  v-if="!isclickcream" style="text-align: center;color: #5ca3ff;margin-top: 6px">暂无更多</div>
         </div>
       </van-pull-refresh>
       </van-tab>
@@ -133,19 +136,39 @@ export default {
       isclickhott:true,
       islodingcream: false,
       isclickcream:true,
+      textlists:[],
+      textlist:[],
+      textlistss:[]
     }
   },
   mounted() {
     // this.$router.go(0)
+    // this.isclick=false
     this.contentList = []
     let date = new Date(+new Date() + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
     console.log(date)
     this.showlist()
+    doGet(`${API_HOST}/api/club/tiezi/searchTieziByzhuti`,{bankuaiId:this.$route.query.id,status:0,createtime:date}).then(res => {
+      if (res) {
+        this.contentList = res.data.list
+        this.shopListLength = this.contentList.length
+        this.textlist = this.contentList.slice(0, this.shopPages)
+        this.$forceUpdate() 
+        console.log(this.shopListLengthss)
+        if(this.shopListLength<10){
+          console.log()
+          this.isclick = false
+        }
+      }
+    })
     doGet(`${API_HOST}/api/club/tiezi/searchTieziByzhuti`,{bankuaiId:this.$route.query.id,status:1,createtime:date}).then(res => {
       if (res) {
         this.contentLists = res.data.list
         this.shopListLengths = this.contentLists.length
         this.textlists = this.contentLists.slice(0, this.shopPages)
+        if(this.shopListLengths<10){
+          this.isclickhott = false
+        }
       }
     })
     doGet(`${API_HOST}/api/club/tiezi/searchTieziByzhuti`,{bankuaiId:this.$route.query.id,status:2,createtime:date}).then(res => {
@@ -156,6 +179,9 @@ export default {
         // this.contentList = res.data.list
         this.shopListLengthss = this.contentListss.length
         this.textlistss = this.contentListss.slice(0, this.shopPagess)
+        if(this.shopListLengthss<10){
+          this.isclickcream = false
+        }
       }
     })
   },
@@ -165,6 +191,7 @@ export default {
       let pageNumber = this.textlist.length
       if (pageNumber < this.shopListLength) {
       // this.isMoreShop = true
+      // this.isclick = false
       if (pageNumber + this.shopPage < this.shopListLength) {
         console.log(this.shopListLength)
         this.isloding = true
@@ -356,7 +383,16 @@ export default {
           name: item.name
         }
       })
-     }  else if (!localStorage.roleid) {
+     } else if (localStorage.roleid == 1) {
+       console.log(localStorage.roleid)
+      this.$router.push({path: '/detailPost',
+        query: {
+          id: item.id,
+          name: item.name
+        }
+      })
+     }
+      else if (!localStorage.roleid) {
        console.log(localStorage.roleid)
       this.$router.push({path: '/detailPost',
         query: {

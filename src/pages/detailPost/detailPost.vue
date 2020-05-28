@@ -175,7 +175,7 @@ export default {
         //   // return s
         //   // item.substring(22)
         // })
-        
+         
         // this.images = s
         //  for (i = 0; i++; i< this.hrefmath.lenght){
 
@@ -186,13 +186,18 @@ export default {
         this.createuserid = res.data.t.createuserid
         this.src = res.data.t.profile
         this.isimg = this.href.split('.')
-        this.isimg[1].slice(0,3)
-        console.log(this.isimg[1].slice(0,3))
+        console.log(this.isimg)
+        if(this.isimg ==""){
+
+        } else{
+          this.isimg[1].slice(0,3)
+        }
+        // console.log(this.isimg[1].slice(0,3))
         // this.href = this.href.substr(0,22)
-        console.log(this.isimg[1])
+        // console.log(this.isimg[1])
         console.log(this.createuserid)
         if (localStorage.userid == this.createuserid) {
-          console.log('hhhhhhhh')
+          // console.log('hhhhhhhh')
           this.ismine = false
           this.isSave = false
           this.toIntSave = false

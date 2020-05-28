@@ -1,1 +1,1 @@
-export const API_HOST = 'http://m.ypccau.com'
+export const API_HOST = 'http://test.ypccau.com'

@@ -22,7 +22,7 @@
       right-text=""
       left-arrow
       @click-left="onClickLeft"
-      @click-right="onClickRight"
+ 
     />
     <div @click="toDetailPost(item)" v-for="(item,index) in contentList" class="shareTextcontent">
       <span style="color:pink;font-size:14px">【{{type}}】</span>
