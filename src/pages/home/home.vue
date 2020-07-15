@@ -4,7 +4,7 @@
     <div class="nav">
       <div class="blockNav">
         <div class="textMargin"><router-link to="/community"> 青年i猪社区 </router-link></div>
-        <a class="textMargin" href="">求职招聘</a>
+        <a class="textMargin" href=""><router-link to="/jobRecruitmentMain">求职招聘</router-link></a>
         <a class="textMargin" href="">在线课堂</a>
         <a class="textMargin" href="">YPC头条</a>
         <a class="textMargin" href="">实践项目</a>
@@ -158,7 +158,7 @@ export default {
           console.log(this.pagess)
           if(res.data.list.length === 0){
             console.log(res.data.list)
-            // this.pagess = 0
+            this.pagess = 0
             doGet(`${API_HOST}/api/club/tiezi/searchTieziByzhuti`,{beginNum:this.pagess,loadNum:3,status:2}).then(res => {
               if (res) {
                 this.contentListcream=res.data.list
